@@ -33,92 +33,93 @@ export const PROMOTIONS: Promotion[] = [
 export const PRODUCTS: Product[] = [
   {
     id: 'g-hoodie-01',
-    slug: 'google-heritage-tricolor-hoodie',
-    name: 'Google Heritage Tricolor Zip Hoodie',
-    tagline: 'Ultra-soft organic cotton fleece with embroidered Google crest',
-    price: 54.00,
-    originalPrice: 65.00,
+    slug: 'google-hoodie',
+    name: 'Google Hoodie',
+    tagline: 'Iconic Google logo pullover crafted with ultra-soft organic cotton fleece',
+    price: 85.00,
+    originalPrice: 95.00,
     category: 'clothing',
     categoryLabel: 'Apparel',
     subcategory: 'Hoodies & Sweatshirts',
-    badge: 'Bestseller',
+    badge: 'Trending',
     isBestseller: true,
-    isNew: false,
+    isNew: true,
+    ecoFriendly: true,
     inStock: true,
-    stockCount: 18,
-    rating: 4.9,
-    reviewCount: 2400,
+    stockCount: 28,
+    rating: 4.8,
+    reviewCount: 124,
     images: [
+      '/products/grey-hoodie.jpg',
       '/products/white-hoodie.jpg',
-      '/hero-banner.jpg',
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80'
+      '/wear-what-you-google.jpg'
     ],
     colors: [
-      { name: 'White', hex: '#ffffff' },
-      { name: 'Heather Grey', hex: '#94a3b8' },
-      { name: 'Black', hex: '#0f172a' },
-      { name: 'Royal Blue', hex: '#2563eb' }
+      { name: 'Heather Grey', hex: '#d1d5db' },
+      { name: 'Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Google Red', hex: '#dc2626' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'A Google campus classic refreshed for all-day comfort. Crafted with 100% GOTS-certified heavyweight organic cotton fleece, featuring a double-lined hood, durable YKK metal zipper, and subtle tonal embroidery of the iconic Google Super G logo on the chest.',
+    description: 'A Google campus classic refreshed for all-day comfort. Crafted with 100% GOTS-certified heavyweight organic cotton fleece, featuring a double-lined hood, durable drawstrings, and the vibrant Google logo across the chest.',
     features: [
       '100% certified organic ring-spun combed cotton (380 GSM)',
       'Custom brushed interior for cloud-like softness',
-      'Embroidered heritage chest emblem and sleeve badge',
+      'Vibrant multi-color Google chest print',
       'Heavy-gauge ribbed cuffs and hem with spandex memory',
-      'Reinforced kangaroo pocket with internal phone pouch'
+      'Spacious front kangaroo pocket'
     ],
     materials: '80% Organic Cotton, 20% Recycled Poly Fleece',
-    care: 'Machine wash cold with like colors, tumble dry low. Do not iron embroidery.',
+    care: 'Machine wash cold with like colors, tumble dry low.',
     reviews: [
       {
         id: 'rev-101',
-        author: 'Marcus L.',
-        date: '3 days ago',
+        author: 'Sarah M.',
+        date: '2 days ago',
         rating: 5,
-        title: 'Insanely comfortable, perfect campus fit',
-        comment: 'The fleece inside is the softest hoodie I own. Sizing is true to standard unisex fit. Navy color looks very sharp.',
+        title: 'Super comfortable and looks amazing',
+        comment: 'Great quality, super comfortable and looks amazing! Sizing is true to standard unisex fit.',
         verified: true
       },
       {
         id: 'rev-102',
-        author: 'Elena S.',
+        author: 'James T.',
         date: '1 week ago',
         rating: 5,
-        title: 'High quality zipper and embroidery',
-        comment: 'Surpassed expectations. It has substantial weight without feeling bulky. Love the discreet Google logo.',
+        title: 'Perfect for everyday use',
+        comment: 'Perfect for everyday use. I get compliments all the time!',
         verified: true
       }
     ]
   },
   {
     id: 'g-tee-02',
-    slug: 'google-classic-super-g-t-shirt',
-    name: 'Google Classic Super G T-Shirt',
-    tagline: 'Tailored everyday crewneck in premium combed cotton',
+    slug: 'google-t-shirt',
+    name: 'Google T-Shirt',
+    tagline: 'Simple & iconic everyday crewneck in premium combed cotton',
     price: 28.00,
     category: 'clothing',
     categoryLabel: 'Apparel',
     subcategory: 'T-Shirts',
     badge: 'Popular',
     isBestseller: true,
-    isNew: false,
+    isNew: true,
+    ecoFriendly: true,
     inStock: true,
     stockCount: 45,
     rating: 4.8,
-    reviewCount: 1800,
+    reviewCount: 180,
     images: [
-      '/products/superg-tee.jpg',
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80'
+      '/products/google-tee.jpg',
+      '/products/superg-tee.jpg'
     ],
     colors: [
       { name: 'Crisp White', hex: '#ffffff' },
-      { name: 'Heather Grey', hex: '#94a3b8' },
-      { name: 'Dark Blue', hex: '#1e3a8a' },
-      { name: 'Royal Blue', hex: '#2563eb' }
+      { name: 'Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' }
     ],
     sizes: ['S', 'M', 'L', 'XL'],
-    description: 'The foundation of the Google Merch wardrobe. Lightweight, breathable, and pre-shrunk for a consistent tailored fit wash after wash. Screen-printed with solvent-free water-based inks featuring the clean Google G monogram.',
+    description: 'The foundation of the Google Merch wardrobe. Lightweight, breathable, and pre-shrunk for a consistent tailored fit wash after wash. Screen-printed with solvent-free water-based inks featuring the clean Google logo.',
     features: [
       '100% combed ring-spun organic cotton (180 GSM)',
       'Side-seamed construction for shape retention',
@@ -134,41 +135,43 @@ export const PRODUCTS: Product[] = [
         date: '5 days ago',
         rating: 5,
         title: 'Best basic tee ever',
-        comment: 'Fabric feels breathable and holds up well after multiple washes. The subtle G logo is very sleek.',
+        comment: 'Fabric feels breathable and holds up well after multiple washes. The subtle logo is very sleek.',
         verified: true
       }
     ]
   },
   {
     id: 'g-cap-03',
-    slug: 'google-classic-cap',
-    name: 'Google Classic Cap',
-    tagline: 'Water-repellent structured 6-panel cap with magnetic buckle',
-    price: 22.00,
+    slug: 'google-cap',
+    name: 'Google Cap',
+    tagline: 'Keep it classic structured 6-panel cap with Google G emblem',
+    price: 28.00,
     category: 'accessories',
     categoryLabel: 'Accessories',
     subcategory: 'Hats & Caps',
-    badge: 'Popular',
-    isBestseller: false,
+    badge: 'Fan Favorite',
+    isBestseller: true,
     isNew: true,
     inStock: true,
-    stockCount: 30,
-    rating: 4.7,
-    reviewCount: 840,
+    stockCount: 36,
+    rating: 4.6,
+    reviewCount: 87,
     images: [
-      '/products/white-cap.jpg',
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80'
+      '/products/black-cap.jpg',
+      '/products/white-cap.jpg'
     ],
     colors: [
-      { name: 'Crisp White', hex: '#ffffff' },
-      { name: 'Stealth Black', hex: '#171923' }
+      { name: 'Stealth Black', hex: '#111827' },
+      { name: 'Light Grey', hex: '#d1d5db' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Google Red', hex: '#dc2626' }
     ],
     sizes: ['One Size Fits All'],
-    description: 'Engineered for coders and creators on the move. Features a sweat-wicking internal headband, laser-perforated side ventilation panels, and the colorful embroidered Google G emblem.',
+    description: 'Engineered for creators on the move. Features a sweat-wicking internal headband, structured front crown, and the vibrant embroidered Google G emblem.',
     features: [
       'Laser-cut breathable eyelets for airflow',
       'UPF 50+ sun protection fabric with DWR finish',
-      'Embroidered heritage Google G icon',
+      'Embroidered four-color Google G icon',
       'Adjustable back clasp closure'
     ],
     materials: '100% Recycled Cotton Twill',
@@ -187,36 +190,37 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'g-tumbler-04',
-    slug: 'google-pixel-insulated-bottle',
-    name: 'Google Pixel Insulated Bottle',
-    tagline: 'Double-wall stainless steel with leakproof insulated cap',
+    slug: 'google-bottle',
+    name: 'Google Bottle',
+    tagline: 'Stay refreshed with double-wall insulated stainless steel and silver loop cap',
     price: 32.00,
     category: 'drinkware',
     categoryLabel: 'Drinkware',
     subcategory: 'Bottles & Tumblers',
     badge: 'Bestseller',
     isBestseller: true,
-    isNew: false,
+    isNew: true,
+    ecoFriendly: true,
     inStock: true,
     stockCount: 52,
     rating: 4.9,
-    reviewCount: 3200,
+    reviewCount: 156,
     images: [
       '/products/pixel-bottle.jpg',
-      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=80'
+      '/hydrate-smarter-banner.jpg'
     ],
     colors: [
       { name: 'Porcelain White', hex: '#ffffff' },
-      { name: 'Obsidian Black', hex: '#0f172a' },
-      { name: 'Tech Navy', hex: '#1e3a8a' },
+      { name: 'Obsidian Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' },
       { name: 'Google Green', hex: '#16a34a' }
     ],
     sizes: ['24 oz (710 ml)'],
-    description: 'Designed to mirror the soft-touch tactile finish of Google Pixel devices. Keeps drinks ice cold for 24 hours or piping hot for up to 12 hours. Ergonomically shaped to fit standard vehicle cup holders and backpack bottle pockets.',
+    description: 'Stay refreshed with vacuum insulated stainless steel. Keeps drinks ice cold for 24 hours or piping hot for up to 12 hours. Ergonomically shaped to fit standard vehicle cup holders and backpack bottle pockets with brushed silver loop cap.',
     features: [
       'Pro-grade 18/8 kitchen stainless steel',
       'Copper-core vacuum insulation eliminates condensation',
-      'Leakproof stainless steel screw-top cap',
+      'Leakproof stainless steel screw-top cap with loop handle',
       'BPA-free, lead-free and non-toxic inner lining'
     ],
     materials: '18/8 Stainless Steel, Food-grade Silicone',
@@ -224,11 +228,11 @@ export const PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'rev-401',
-        author: 'Chloe R.',
+        author: 'Emily R.',
         date: '4 days ago',
         rating: 5,
-        title: 'Keeps ice frozen for over a full day',
-        comment: 'Matches my Pixel phone perfectly. The finish feels incredible in the hand!',
+        title: 'Love the eco-friendly options',
+        comment: 'Love the eco-friendly options. Good quality and great style! Keeps water freezing cold.',
         verified: true
       }
     ]
@@ -282,33 +286,33 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'g-backpack-06',
-    slug: 'google-everyday-backpack',
-    name: 'Google Everyday Backpack',
-    tagline: 'Weatherproof recycled tech pack with dedicated 16" laptop sleeve',
-    price: 48.00,
-    originalPrice: 58.00,
+    slug: 'google-backpack',
+    name: 'Google Backpack',
+    tagline: 'Carry your world with weatherproof recycled tech pack and dedicated laptop sleeve',
+    price: 75.00,
+    originalPrice: 85.00,
     category: 'bags',
     categoryLabel: 'Bags',
     subcategory: 'Bags & Backpacks',
-    badge: 'Bestseller',
+    badge: 'Popular',
     isBestseller: true,
-    isNew: false,
+    isNew: true,
+    ecoFriendly: true,
     inStock: true,
     stockCount: 24,
-    rating: 4.8,
-    reviewCount: 950,
+    rating: 4.7,
+    reviewCount: 98,
     images: [
-      '/products/everyday-backpack.jpg',
-      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=80'
+      '/products/black-backpack.jpg',
+      '/products/everyday-backpack.jpg'
     ],
     colors: [
-      { name: 'Canvas Cream', hex: '#fdfbf7' },
-      { name: 'Space Grey', hex: '#4a5568' },
-      { name: 'Deep Tech Navy', hex: '#2c3e50' }
+      { name: 'Black', hex: '#111827' },
+      { name: 'Grey', hex: '#64748b' },
+      { name: 'Google Blue', hex: '#2563eb' }
     ],
     sizes: ['24 Liters'],
-    description: 'The standard issue backpack seen across Google’s global engineering offices. Features waterproof coated zippers, an elevated suspended laptop sleeve protecting up to 16” devices, hidden passport pocket, and luggage trolley pass-through.',
+    description: 'Carry your world. The standard issue backpack seen across Google campus. Features waterproof coated zippers, an elevated suspended laptop sleeve protecting up to 16” devices, hidden passport pocket, and luggage trolley pass-through.',
     features: [
       'Constructed from 32 recycled plastic bottles (Cordura Eco Fabric)',
       'Water-repellent PU coating rated IPX4 for rain protection',
@@ -320,11 +324,11 @@ export const PRODUCTS: Product[] = [
     reviews: [
       {
         id: 'rev-601',
-        author: 'Priya N.',
-        date: '2 weeks ago',
+        author: 'David L.',
+        date: '3 days ago',
         rating: 5,
-        title: 'Ideal everyday carry for developers',
-        comment: 'Holds my 16 inch MacBook Pro, charger brick, headphones, water bottle, and gym clothes with room to spare.',
+        title: 'Spacious and well designed',
+        comment: 'The backpack is spacious and well designed. Highly recommend!',
         verified: true
       }
     ]

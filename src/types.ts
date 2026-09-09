@@ -42,6 +42,7 @@ export interface Product {
   stockCount: number;
   isBestseller?: boolean;
   isNew?: boolean;
+  ecoFriendly?: boolean;
   rating: number;
   reviewCount: number;
   colors: ProductColor[];

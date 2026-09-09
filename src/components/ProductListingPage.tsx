@@ -11,6 +11,7 @@ import {
 import { Product, ProductCategory } from '../types';
 import { ProductCard } from './ProductCard';
 import { CATEGORIES } from '../data/products';
+import { NewArrivalsExperience } from './NewArrivalsExperience';
 
 interface ProductListingPageProps {
   products: Product[];
@@ -37,6 +38,7 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
   const [inStockOnly, setInStockOnly] = useState<boolean>(false);
   const [priceRange, setPriceRange] = useState<'all' | 'under-30' | '30-60' | 'over-60'>('all');
   const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
+  const [newArrivalsViewMode, setNewArrivalsViewMode] = useState<'showcase' | 'grid'>('showcase');
 
   // Filter & Sort Logic
   const filteredProducts = useMemo(() => {
@@ -218,8 +220,55 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
           </div>
         )}
 
-        {/* Main Content Layout: Sidebar Filters + Product Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-6">
+        {/* New Arrivals Mode Switcher */}
+        {selectedCategory === 'new-arrivals' && !searchQuery && (
+          <div className="mt-6 flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-neutral-200">
+            <div className="inline-flex p-1 rounded-xl bg-neutral-200/80 border border-neutral-300/60">
+              <button
+                id="btn-mode-showcase"
+                type="button"
+                onClick={() => setNewArrivalsViewMode('showcase')}
+                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  newArrivalsViewMode === 'showcase'
+                    ? 'bg-white text-neutral-900 shadow-xs'
+                    : 'text-neutral-600 hover:text-neutral-900'
+                }`}
+              >
+                Featured Showcase & Essentials
+              </button>
+              <button
+                id="btn-mode-grid"
+                type="button"
+                onClick={() => setNewArrivalsViewMode('grid')}
+                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  newArrivalsViewMode === 'grid'
+                    ? 'bg-white text-neutral-900 shadow-xs'
+                    : 'text-neutral-600 hover:text-neutral-900'
+                }`}
+              >
+                Browse All New Arrivals Grid ({filteredProducts.length})
+              </button>
+            </div>
+            
+            <div className="text-xs text-neutral-500 font-medium hidden sm:block">
+              Spring 2026 Collection • Eco-certified materials
+            </div>
+          </div>
+        )}
+
+        {/* Conditional View: Curated Showcase vs Standard Filterable Grid */}
+        {selectedCategory === 'new-arrivals' && newArrivalsViewMode === 'showcase' && !searchQuery ? (
+          <div className="mt-2">
+            <NewArrivalsExperience
+              products={products}
+              onSelectProduct={onSelectProduct}
+              onSelectCategory={onSelectCategory}
+              onNavigateHome={onNavigateHome}
+            />
+          </div>
+        ) : (
+          /* Main Content Layout: Sidebar Filters + Product Grid */
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-6">
           
           {/* Desktop Left Filter Sidebar */}
           <aside className="hidden lg:block space-y-6">
@@ -357,6 +406,7 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
           </main>
 
         </div>
+        )}
 
       </div>
 
