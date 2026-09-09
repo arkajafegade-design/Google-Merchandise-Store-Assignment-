@@ -5,32 +5,39 @@ import {
   Menu, 
   X, 
   Activity, 
-  ChevronDown,
-  Sparkles,
-  ArrowRight
+  User,
+  HelpCircle
 } from 'lucide-react';
 import { ProductCategory } from '../types';
 import { useCart } from '../context/CartContext';
 import { useAnalytics } from '../context/AnalyticsContext';
 
 interface HeaderProps {
-  currentCategory: ProductCategory;
+  currentCategory?: ProductCategory;
+  activeCategory?: ProductCategory;
   onSelectCategory: (cat: ProductCategory) => void;
   onNavigateHome: () => void;
   onOpenSearch: () => void;
-  onOpenCheckout: () => void;
+  onOpenCheckout?: () => void;
+  onOpenCart?: () => void;
+  onOpenInspector?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   currentCategory,
+  activeCategory,
   onSelectCategory,
   onNavigateHome,
   onOpenSearch,
-  onOpenCheckout
+  onOpenCheckout,
+  onOpenCart,
+  onOpenInspector
 }) => {
   const { itemCount, setIsCartOpen } = useCart();
   const { events, setIsInspectorOpen } = useAnalytics();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const activeCat = activeCategory || currentCategory || 'all';
 
   const categories: Array<{ id: ProductCategory; label: string; badge?: string }> = [
     { id: 'all', label: 'All Products' },
@@ -39,7 +46,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'bags', label: 'Bags' },
     { id: 'accessories', label: 'Accessories' },
     { id: 'tech-stationery', label: 'Collectibles' },
-    { id: 'new-arrivals', label: 'New Arrivals', badge: 'Spring 26' }
+    { id: 'new-arrivals', label: 'New Arrivals' }
   ];
 
   const handleCategoryClick = (cat: ProductCategory) => {
@@ -133,35 +140,36 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Desktop Category Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1 h-16">
             {categories.map(cat => {
-              const isActive = currentCategory === cat.id;
+              const isActive = activeCat === cat.id;
               return (
                 <button
                   key={cat.id}
                   id={`nav-cat-${cat.id}`}
                   onClick={() => handleCategoryClick(cat.id)}
-                  className={`px-3.5 py-2 rounded-full text-sm font-medium transition cursor-pointer flex items-center space-x-1.5 ${
+                  className={`relative h-full px-3.5 flex items-center text-sm font-medium transition cursor-pointer ${
                     isActive
-                      ? 'bg-neutral-900 text-white shadow-xs'
-                      : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
+                      ? 'text-blue-600 font-semibold'
+                      : 'text-neutral-600 hover:text-neutral-900'
                   }`}
                 >
                   <span>{cat.label}</span>
                   {cat.badge && (
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
-                      isActive ? 'bg-blue-500 text-white' : 'bg-blue-100 text-blue-700'
-                    }`}>
+                    <span className="ml-1.5 text-[10px] px-1.5 py-0.2 rounded-full font-semibold bg-blue-100 text-blue-700">
                       {cat.badge}
                     </span>
+                  )}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-blue-600 rounded-full" />
                   )}
                 </button>
               );
             })}
           </nav>
 
-          {/* Action Icons: Search & Cart */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          {/* Action Icons: Search, Account & Cart */}
+          <div className="flex items-center space-x-1 sm:space-x-2">
             {/* Search Input Trigger */}
             <button
               id="header-search-trigger-btn"
@@ -176,19 +184,27 @@ export const Header: React.FC<HeaderProps> = ({
               </kbd>
             </button>
 
-            {/* Cart Bag Icon with Live Badge */}
+            {/* Account Icon */}
+            <button
+              id="header-account-btn"
+              type="button"
+              className="p-2 rounded-full text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition cursor-pointer"
+              aria-label="Account profile"
+            >
+              <User className="w-5 h-5 text-neutral-700" />
+            </button>
+
+            {/* Cart Bag Icon with Badge */}
             <button
               id="header-cart-btn"
-              onClick={() => setIsCartOpen(true)}
+              onClick={() => (onOpenCart ? onOpenCart() : setIsCartOpen(true))}
               className="relative p-2 rounded-full text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition cursor-pointer focus:outline-hidden"
               aria-label={`View shopping cart with ${itemCount} items`}
             >
               <ShoppingBag className="w-5 h-5 text-neutral-800" />
-              {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full bg-blue-600 text-white text-[11px] font-bold shadow-xs animate-scale">
-                  {itemCount}
-                </span>
-              )}
+              <span className="absolute 0 top-0.5 right-0.5 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-rose-500 text-white text-[10px] font-bold shadow-xs">
+                {itemCount}
+              </span>
             </button>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { Product, ProductCategory } from '../types';
 import { ProductCard } from './ProductCard';
 import { CATEGORIES } from '../data/products';
 import { NewArrivalsExperience } from './NewArrivalsExperience';
+import { AllProductsExperience } from './AllProductsExperience';
 
 interface ProductListingPageProps {
   products: Product[];
@@ -39,6 +40,7 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
   const [priceRange, setPriceRange] = useState<'all' | 'under-30' | '30-60' | 'over-60'>('all');
   const [mobileFilterOpen, setMobileFilterOpen] = useState<boolean>(false);
   const [newArrivalsViewMode, setNewArrivalsViewMode] = useState<'showcase' | 'grid'>('showcase');
+  const [allProductsViewMode, setAllProductsViewMode] = useState<'showcase' | 'grid'>('showcase');
 
   // Filter & Sort Logic
   const filteredProducts = useMemo(() => {
@@ -106,167 +108,231 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
     if (onClearSearch) onClearSearch();
   };
 
+  const isAllProductsShowcase = selectedCategory === 'all' && allProductsViewMode === 'showcase' && !searchQuery;
+  const isNewArrivalsShowcase = selectedCategory === 'new-arrivals' && newArrivalsViewMode === 'showcase' && !searchQuery;
+
   return (
-    <div className="bg-neutral-50/50 min-h-screen py-6 sm:py-10">
+    <div className="bg-neutral-50/50 min-h-screen py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center space-x-2 text-xs text-neutral-500 mb-6">
-          <button
-            onClick={onNavigateHome}
-            className="flex items-center space-x-1 hover:text-neutral-900 transition"
-          >
-            <Home className="w-3.5 h-3.5" />
-            <span>Home</span>
-          </button>
-          <span>/</span>
-          <span className="font-semibold text-neutral-800">{categoryTitle}</span>
-        </nav>
-
-        {/* Page Title & Controls Bar */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-neutral-200 gap-4">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
-              {categoryTitle}
-            </h1>
-            <p className="text-xs sm:text-sm text-neutral-500 mt-1">
-              Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'item' : 'items'}
-              {selectedCategory !== 'all' && ` in ${categoryTitle}`}
-            </p>
-          </div>
-
-          {/* Filter & Sorting Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            {/* Mobile Filter Button */}
-            <button
-              id="mobile-filter-open-btn"
-              onClick={() => setMobileFilterOpen(true)}
-              className="lg:hidden inline-flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-white border border-neutral-300 text-xs font-semibold text-neutral-800 shadow-2xs"
-            >
-              <SlidersHorizontal className="w-4 h-4" />
-              <span>Filters</span>
-              {hasActiveFilters && (
-                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-              )}
-            </button>
-
-            {/* Sorting Dropdown */}
-            <div className="relative inline-flex items-center">
-              <label htmlFor="sort-dropdown" className="sr-only">Sort by</label>
-              <select
-                id="sort-dropdown"
-                value={sortOption}
-                onChange={(e) => setSortOption(e.target.value as SortOption)}
-                className="appearance-none bg-white border border-neutral-300 rounded-xl px-3.5 py-2 pr-9 text-xs sm:text-sm font-semibold text-neutral-800 focus:outline-hidden focus:ring-2 focus:ring-neutral-900 shadow-2xs cursor-pointer"
-              >
-                <option value="bestseller">Sort by: Best Sellers</option>
-                <option value="newest">Sort by: Newest Arrivals</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="rating">Highest Customer Rating</option>
-              </select>
-              <ChevronDown className="w-4 h-4 text-neutral-500 absolute right-3 pointer-events-none" />
-            </div>
-          </div>
-        </div>
-
-        {/* Active Filter Chips */}
-        {hasActiveFilters && (
-          <div className="flex flex-wrap items-center gap-2 pt-4">
-            <span className="text-xs text-neutral-400 font-medium">Active filters:</span>
-
-            {selectedCategory !== 'all' && (
-              <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
-                <span>Category: {selectedCategory}</span>
-                <button onClick={() => onSelectCategory('all')} className="hover:text-red-600">
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-
-            {searchQuery && (
-              <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                <span>Query: "{searchQuery}"</span>
-                <button onClick={onClearSearch} className="hover:text-red-600">
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-
-            {inStockOnly && (
-              <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
-                <span>In Stock Only</span>
-                <button onClick={() => setInStockOnly(false)} className="hover:text-red-600">
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-
-            {priceRange !== 'all' && (
-              <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
-                <span>Price: {priceRange}</span>
-                <button onClick={() => setPriceRange('all')} className="hover:text-red-600">
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
-
-            <button
-              onClick={resetAllFilters}
-              className="text-xs text-neutral-500 hover:text-neutral-900 underline ml-2 font-medium"
-            >
-              Reset all
-            </button>
-          </div>
-        )}
-
-        {/* New Arrivals Mode Switcher */}
-        {selectedCategory === 'new-arrivals' && !searchQuery && (
-          <div className="mt-6 flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-neutral-200">
+        {/* All Products View Switcher Bar */}
+        {selectedCategory === 'all' && !searchQuery && (
+          <div className="mb-6 flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-neutral-200">
             <div className="inline-flex p-1 rounded-xl bg-neutral-200/80 border border-neutral-300/60">
               <button
-                id="btn-mode-showcase"
+                id="btn-all-mode-showcase"
                 type="button"
-                onClick={() => setNewArrivalsViewMode('showcase')}
+                onClick={() => setAllProductsViewMode('showcase')}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  newArrivalsViewMode === 'showcase'
+                  allProductsViewMode === 'showcase'
                     ? 'bg-white text-neutral-900 shadow-xs'
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                Featured Showcase & Essentials
+                Category Highlights & Experience
               </button>
               <button
-                id="btn-mode-grid"
+                id="btn-all-mode-grid"
                 type="button"
-                onClick={() => setNewArrivalsViewMode('grid')}
+                onClick={() => setAllProductsViewMode('grid')}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  newArrivalsViewMode === 'grid'
+                  allProductsViewMode === 'grid'
                     ? 'bg-white text-neutral-900 shadow-xs'
                     : 'text-neutral-600 hover:text-neutral-900'
                 }`}
               >
-                Browse All New Arrivals Grid ({filteredProducts.length})
+                Browse All Products Grid ({products.length})
               </button>
             </div>
             
             <div className="text-xs text-neutral-500 font-medium hidden sm:block">
-              Spring 2026 Collection • Eco-certified materials
+              Official Google Merchandise • All 74 Campus Essentials
             </div>
           </div>
         )}
 
-        {/* Conditional View: Curated Showcase vs Standard Filterable Grid */}
-        {selectedCategory === 'new-arrivals' && newArrivalsViewMode === 'showcase' && !searchQuery ? (
-          <div className="mt-2">
-            <NewArrivalsExperience
-              products={products}
-              onSelectProduct={onSelectProduct}
-              onSelectCategory={onSelectCategory}
-              onNavigateHome={onNavigateHome}
-            />
-          </div>
+        {/* If in All Products Showcase Mode, display the complete experience */}
+        {isAllProductsShowcase ? (
+          <AllProductsExperience
+            products={products}
+            onSelectProduct={onSelectProduct}
+            onSelectCategory={onSelectCategory}
+            onNavigateHome={onNavigateHome}
+            onViewCatalog={() => setAllProductsViewMode('grid')}
+            selectedPriceRange={priceRange}
+            onSelectPriceRange={(range) => {
+              setPriceRange(range);
+              if (range !== 'all') {
+                setAllProductsViewMode('grid');
+              }
+            }}
+            inStockOnly={inStockOnly}
+            onToggleInStock={(val) => {
+              setInStockOnly(val);
+              if (val) {
+                setAllProductsViewMode('grid');
+              }
+            }}
+          />
         ) : (
+          <>
+            {/* Breadcrumb Navigation */}
+            <nav className="flex items-center space-x-2 text-xs text-neutral-500 mb-6">
+              <button
+                onClick={onNavigateHome}
+                className="flex items-center space-x-1 hover:text-neutral-900 transition cursor-pointer"
+              >
+                <Home className="w-3.5 h-3.5" />
+                <span>Home</span>
+              </button>
+              <span>/</span>
+              <span className="font-semibold text-neutral-800">{categoryTitle}</span>
+            </nav>
+
+            {/* Page Title & Controls Bar */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-neutral-200 gap-4">
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+                  {categoryTitle}
+                </h1>
+                <p className="text-xs sm:text-sm text-neutral-500 mt-1">
+                  Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'item' : 'items'}
+                  {selectedCategory !== 'all' && ` in ${categoryTitle}`}
+                </p>
+              </div>
+
+              {/* Filter & Sorting Actions */}
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                {/* Mobile Filter Button */}
+                <button
+                  id="mobile-filter-open-btn"
+                  onClick={() => setMobileFilterOpen(true)}
+                  className="lg:hidden inline-flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-white border border-neutral-300 text-xs font-semibold text-neutral-800 shadow-2xs cursor-pointer"
+                >
+                  <SlidersHorizontal className="w-4 h-4" />
+                  <span>Filters</span>
+                  {hasActiveFilters && (
+                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  )}
+                </button>
+
+                {/* Sorting Dropdown */}
+                <div className="relative inline-flex items-center">
+                  <label htmlFor="sort-dropdown" className="sr-only">Sort by</label>
+                  <select
+                    id="sort-dropdown"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value as SortOption)}
+                    className="appearance-none bg-white border border-neutral-300 rounded-xl px-3.5 py-2 pr-9 text-xs sm:text-sm font-semibold text-neutral-800 focus:outline-hidden focus:ring-2 focus:ring-neutral-900 shadow-2xs cursor-pointer"
+                  >
+                    <option value="bestseller">Sort by: Best Sellers</option>
+                    <option value="newest">Sort by: Newest Arrivals</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Highest Customer Rating</option>
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-neutral-500 absolute right-3 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Active Filter Chips */}
+            {hasActiveFilters && (
+              <div className="flex flex-wrap items-center gap-2 pt-4">
+                <span className="text-xs text-neutral-400 font-medium">Active filters:</span>
+
+                {selectedCategory !== 'all' && (
+                  <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
+                    <span>Category: {selectedCategory}</span>
+                    <button onClick={() => onSelectCategory('all')} className="hover:text-red-600 cursor-pointer">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                {searchQuery && (
+                  <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span>Query: "{searchQuery}"</span>
+                    <button onClick={onClearSearch} className="hover:text-red-600 cursor-pointer">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                {inStockOnly && (
+                  <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
+                    <span>In Stock Only</span>
+                    <button onClick={() => setInStockOnly(false)} className="hover:text-red-600 cursor-pointer">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                {priceRange !== 'all' && (
+                  <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-medium bg-neutral-200 text-neutral-800">
+                    <span>Price: {priceRange}</span>
+                    <button onClick={() => setPriceRange('all')} className="hover:text-red-600 cursor-pointer">
+                      <X className="w-3 h-3" />
+                    </button>
+                  </span>
+                )}
+
+                <button
+                  onClick={resetAllFilters}
+                  className="text-xs text-neutral-500 hover:text-neutral-900 underline ml-2 font-medium cursor-pointer"
+                >
+                  Reset all
+                </button>
+              </div>
+            )}
+
+            {/* New Arrivals Mode Switcher */}
+            {selectedCategory === 'new-arrivals' && !searchQuery && (
+              <div className="mt-6 flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-neutral-200">
+                <div className="inline-flex p-1 rounded-xl bg-neutral-200/80 border border-neutral-300/60">
+                  <button
+                    id="btn-mode-showcase"
+                    type="button"
+                    onClick={() => setNewArrivalsViewMode('showcase')}
+                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                      newArrivalsViewMode === 'showcase'
+                        ? 'bg-white text-neutral-900 shadow-xs'
+                        : 'text-neutral-600 hover:text-neutral-900'
+                    }`}
+                  >
+                    Featured Showcase & Essentials
+                  </button>
+                  <button
+                    id="btn-mode-grid"
+                    type="button"
+                    onClick={() => setNewArrivalsViewMode('grid')}
+                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                      newArrivalsViewMode === 'grid'
+                        ? 'bg-white text-neutral-900 shadow-xs'
+                        : 'text-neutral-600 hover:text-neutral-900'
+                    }`}
+                  >
+                    Browse All New Arrivals Grid ({filteredProducts.length})
+                  </button>
+                </div>
+                
+                <div className="text-xs text-neutral-500 font-medium hidden sm:block">
+                  Spring 2026 Collection • Eco-certified materials
+                </div>
+              </div>
+            )}
+
+            {/* Conditional View: New Arrivals Showcase vs Standard Filterable Grid */}
+            {isNewArrivalsShowcase ? (
+              <div className="mt-2">
+                <NewArrivalsExperience
+                  products={products}
+                  onSelectProduct={onSelectProduct}
+                  onSelectCategory={onSelectCategory}
+                  onNavigateHome={onNavigateHome}
+                />
+              </div>
+            ) : (
           /* Main Content Layout: Sidebar Filters + Product Grid */
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-6">
           
@@ -406,6 +472,8 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
           </main>
 
         </div>
+        )}
+          </>
         )}
 
       </div>
