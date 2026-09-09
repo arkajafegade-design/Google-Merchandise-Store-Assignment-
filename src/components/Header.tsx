@@ -34,9 +34,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   const categories: Array<{ id: ProductCategory; label: string; badge?: string }> = [
     { id: 'all', label: 'All Products' },
-    { id: 'clothing', label: 'Clothing' },
-    { id: 'accessories', label: 'Accessories' },
+    { id: 'clothing', label: 'Apparel' },
     { id: 'drinkware', label: 'Drinkware' },
+    { id: 'bags', label: 'Bags' },
+    { id: 'accessories', label: 'Accessories' },
     { id: 'tech-stationery', label: 'Collectibles' },
     { id: 'new-arrivals', label: 'New Arrivals', badge: 'Spring 26' }
   ];

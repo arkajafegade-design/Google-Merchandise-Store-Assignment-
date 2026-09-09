@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Truck, Sparkles, Flame } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, Sparkles, Flame, CheckCircle2 } from 'lucide-react';
 import { ProductCategory } from '../types';
+import heroBannerImg from '../assets/images/google_store_hero_1788961022468.jpg';
 
 interface HeroProps {
   onShopNow: () => void;
@@ -121,37 +122,64 @@ export const Hero: React.FC<HeroProps> = ({ onShopNow, onSelectCategory }) => {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Visual Card */}
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-neutral-200 bg-white">
+              <div 
+                id="hero-banner-visual-card"
+                onClick={onShopNow}
+                className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl border border-neutral-200 bg-white transition duration-500 cursor-pointer"
+              >
                 <img
-                  src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80"
-                  alt="Featured Google Heritage Hoodie Collection"
-                  className="w-full h-80 sm:h-96 object-cover hover:scale-105 transition duration-700"
+                  src={heroBannerImg}
+                  alt="Official Google Merchandise Store Lookbook - Hoodies, Drinkware & Campus Essentials"
+                  className="w-full h-80 sm:h-96 lg:h-[420px] object-cover object-center group-hover:scale-105 transition duration-700 ease-out"
+                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
-                  <span className="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-amber-400 text-neutral-900 w-fit mb-2">
-                    Top Rated Item
+
+                {/* Top Badge: Campus Lookbook */}
+                <div className="absolute top-4 left-4 z-10 flex items-center space-x-2">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-neutral-900 shadow-sm backdrop-blur-md">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 mr-1.5"></span>
+                    Google Campus Lookbook
                   </span>
-                  <h3 className="text-xl font-bold">Google Heritage Tricolor Hoodie</h3>
-                  <p className="text-sm text-neutral-200 mt-0.5">Heavyweight organic fleece • $64.00</p>
-                  <div className="mt-3 flex items-center justify-between">
-                    <div className="flex -space-x-1.5">
-                      <span className="w-4 h-4 rounded-full bg-blue-900 border border-white"></span>
-                      <span className="w-4 h-4 rounded-full bg-gray-500 border border-white"></span>
-                      <span className="w-4 h-4 rounded-full bg-emerald-800 border border-white"></span>
+                </div>
+
+                {/* Bottom Overlay with Product Details */}
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/85 via-neutral-900/30 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-neutral-900">
+                      Featured Outfit
+                    </span>
+                    <span className="text-xs text-neutral-200 font-medium">
+                      2026 Collection
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    Google Campus Essentials
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-300 mt-1 leading-relaxed">
+                    Organic Fleece Hoodie • Insulated Water Bottle • Canvas Tote
+                  </p>
+
+                  <div className="mt-3.5 pt-3 border-t border-white/15 flex items-center justify-between text-xs">
+                    <div className="flex items-center space-x-1.5 text-emerald-300 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>In Stock • Ready to Ship</span>
                     </div>
-                    <span className="text-xs text-neutral-300 font-medium">★ 4.9 (142 reviews)</span>
+                    <span className="text-neutral-200 font-semibold group-hover:text-amber-300 transition flex items-center gap-1">
+                      Explore collection <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition" />
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Floating Accent Pill */}
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg border border-neutral-200/80 p-3 flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
-                  <Truck className="w-5 h-5" />
+              {/* Floating Accent Pill */}
+              <div className="absolute -bottom-3 -left-3 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-neutral-200/80 p-2.5 sm:p-3 flex items-center space-x-2.5 z-20">
+                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+                  <Truck className="w-4 h-4" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-neutral-900">Same-Day Dispatch</p>
-                  <p className="text-[11px] text-neutral-500">Fast orders from Google Campuses</p>
+                  <p className="text-[10px] text-neutral-500">Official Mountain View Hub</p>
                 </div>
               </div>
 

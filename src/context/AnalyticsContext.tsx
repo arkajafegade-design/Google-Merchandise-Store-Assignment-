@@ -88,7 +88,7 @@ export const AnalyticsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setEvents(prev => [newLog, ...prev]);
     setLastEvent(newLog);
 
-    // Also push to standard window.dataLayer if dataLayer exists
+    // Also push to standard window.dataLayer and gtag if they exist
     if (typeof window !== 'undefined') {
       const w = window as any;
       w.dataLayer = w.dataLayer || [];
@@ -96,6 +96,9 @@ export const AnalyticsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         event: eventName,
         ecommerce: params
       });
+      if (typeof w.gtag === 'function') {
+        w.gtag('event', eventName, params);
+      }
       // Console debug log for QA
       console.log(`%c[GA4 Ecommerce] ${eventName}`, 'color: #1a73e8; font-weight: bold;', params);
     }

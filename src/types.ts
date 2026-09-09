@@ -2,6 +2,7 @@ export type ProductCategory =
   | 'all'
   | 'clothing'
   | 'accessories'
+  | 'bags'
   | 'drinkware'
   | 'tech-stationery'
   | 'new-arrivals';

@@ -45,6 +45,10 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
       if (selectedCategory !== 'all') {
         if (selectedCategory === 'new-arrivals') {
           if (!product.isNew) return false;
+        } else if (selectedCategory === 'bags') {
+          if (product.category !== 'bags' && !product.subcategory.toLowerCase().includes('bag') && !product.subcategory.toLowerCase().includes('backpack')) {
+            return false;
+          }
         } else if (product.category !== selectedCategory) {
           return false;
         }

@@ -2,14 +2,25 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { CATEGORIES } from '../data/products';
 import { ProductCategory } from '../types';
+import apparelImg from '../assets/images/cat_apparel_1788961704925.jpg';
+import drinkwareImg from '../assets/images/cat_drinkware_1788961723863.jpg';
+import bagsImg from '../assets/images/cat_bags_1788961740178.jpg';
+import accessoriesImg from '../assets/images/cat_accessories_1788961754885.jpg';
 
 interface ShopByCategoryProps {
   onSelectCategory: (cat: ProductCategory) => void;
 }
 
+const CATEGORY_IMAGE_MAP: Record<string, string> = {
+  clothing: apparelImg,
+  drinkware: drinkwareImg,
+  bags: bagsImg,
+  accessories: accessoriesImg
+};
+
 export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ onSelectCategory }) => {
   return (
-    <section className="py-12 sm:py-16 bg-white">
+    <section id="shop-by-category-section" className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -36,44 +47,43 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({ onSelectCategory
           </button>
         </div>
 
-        {/* Category Cards Grid (4 columns desktop, 2 columns tablet/mobile) */}
+        {/* Category Cards Grid (4 columns desktop, 2 columns mobile/tablet) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {CATEGORIES.map(category => (
-            <div
-              key={category.id}
-              id={`category-card-${category.id}`}
-              onClick={() => onSelectCategory(category.id as ProductCategory)}
-              className="group relative rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/80 cursor-pointer shadow-xs hover:shadow-md transition duration-300 flex flex-col justify-between"
-            >
-              {/* Image Container */}
-              <div className="aspect-4/3 sm:aspect-square w-full overflow-hidden bg-neutral-200">
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-106 transition duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-              </div>
+          {CATEGORIES.map(category => {
+            const imgSrc = CATEGORY_IMAGE_MAP[category.id] || category.image;
 
-              {/* Text Overlay */}
-              <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end text-white pointer-events-none">
-                <span className="text-[11px] font-semibold text-neutral-300 uppercase tracking-wider">
-                  {category.count} Products
-                </span>
-                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-yellow-300 transition mt-0.5">
-                  {category.name}
-                </h3>
-                <p className="hidden sm:block text-xs text-neutral-300 line-clamp-2 mt-1">
-                  {category.description}
-                </p>
-                <div className="mt-2.5 flex items-center space-x-1 text-xs font-semibold text-white/90 group-hover:translate-x-1 transition duration-200">
-                  <span>Explore Collection</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+            return (
+              <div
+                key={category.id}
+                id={`category-card-${category.id}`}
+                onClick={() => onSelectCategory(category.id as ProductCategory)}
+                className="group relative rounded-2xl overflow-hidden bg-white border border-neutral-200/90 shadow-2xs hover:shadow-md hover:border-neutral-300 transition duration-300 cursor-pointer flex flex-col"
+              >
+                {/* Image Container */}
+                <div className="aspect-square w-full overflow-hidden bg-neutral-100 flex items-center justify-center">
+                  <img
+                    src={imgSrc}
+                    alt={category.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500 ease-out"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                {/* Card Footer with Brand Color Dot & Category Title */}
+                <div className="px-4 py-3.5 sm:py-4 bg-white flex items-center space-x-2.5 sm:space-x-3 border-t border-neutral-100">
+                  <span
+                    className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full shrink-0 transition-transform duration-300 group-hover:scale-125"
+                    style={{ backgroundColor: category.dotColor }}
+                    aria-hidden="true"
+                  />
+                  <h3 className="text-xs sm:text-sm font-bold tracking-wider sm:tracking-widest text-neutral-800 uppercase transition-colors duration-200 group-hover:text-neutral-950">
+                    {category.name}
+                  </h3>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

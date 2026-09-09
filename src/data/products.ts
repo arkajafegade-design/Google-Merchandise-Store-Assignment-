@@ -1,4 +1,4 @@
-import { Product, Promotion } from '../types';
+import { Product, ProductCategory, Promotion } from '../types';
 
 export const PROMOTIONS: Promotion[] = [
   {
@@ -10,7 +10,7 @@ export const PROMOTIONS: Promotion[] = [
     subtitle: 'Save 20% on our newest sustainable apparel & tech gear with code GOOGLE20.',
     discountCode: 'GOOGLE20',
     discountRate: 0.2,
-    bannerImage: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1600&q=80',
+    bannerImage: '/hero-banner.jpg',
     categoryTarget: 'clothing',
     tagline: 'Limited time offer • Official Google Store'
   },
@@ -48,6 +48,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewCount: 142,
     images: [
+      '/hero-banner.jpg',
       'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1000&q=80'
@@ -285,8 +286,8 @@ export const PRODUCTS: Product[] = [
     tagline: 'Weatherproof recycled tech pack with dedicated 16" laptop sleeve',
     price: 78.00,
     originalPrice: 89.00,
-    category: 'accessories',
-    categoryLabel: 'Accessories',
+    category: 'bags',
+    categoryLabel: 'Bags',
     subcategory: 'Bags & Backpacks',
     badge: 'Staff Pick',
     isBestseller: true,
@@ -602,40 +603,104 @@ export const PRODUCTS: Product[] = [
         verified: true
       }
     ]
+  },
+  {
+    id: 'g-tote-13',
+    slug: 'google-campus-canvas-tote-bag',
+    name: 'Google Campus Heavyweight Canvas Tote Bag',
+    tagline: '16oz recycled cotton canvas tote with interior zippered pocket',
+    price: 24.00,
+    category: 'bags',
+    categoryLabel: 'Bags',
+    subcategory: 'Bags & Totes',
+    badge: 'New',
+    isNew: true,
+    isBestseller: true,
+    inStock: true,
+    stockCount: 38,
+    rating: 4.9,
+    reviewCount: 47,
+    images: [
+      '/categories/bags.jpg',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80'
+    ],
+    colors: [
+      { name: 'Pitch Black', hex: '#1e293b' },
+      { name: 'Natural Canvas', hex: '#f1f5f9' }
+    ],
+    description: 'A versatile Google campus staple. Built from durable 16oz recycled cotton canvas, featuring reinforced handles, a flat boxed bottom for stability, an interior zippered phone/wallet pocket, and the iconic colorful Google logo screenprint.',
+    features: [
+      '16oz heavyweight 100% GOTS-certified recycled organic cotton canvas',
+      'Reinforced dual carry straps with an ergonomic 11-inch drop',
+      'Interior zippered slip pocket for security and quick organization',
+      'Flat boxed bottom stands upright for easy loading'
+    ],
+    materials: '100% Recycled Cotton Canvas',
+    care: 'Spot clean with mild soap and cold water. Line dry in shade.',
+    reviews: [
+      {
+        id: 'rev-1301',
+        author: 'Kelsey M.',
+        date: '2 days ago',
+        rating: 5,
+        title: 'Roomy, durable and super stylish',
+        comment: 'The canvas is thick and holds its shape nicely. Perfect for campus days, gym gear, or quick grocery trips!',
+        verified: true
+      }
+    ]
   }
 ];
 
-export const CATEGORIES = [
+export interface CategoryItem {
+  id: ProductCategory;
+  name: string;
+  label: string;
+  dotColor: string;
+  dotBgClass: string;
+  description: string;
+  count: number;
+  image: string;
+}
+
+export const CATEGORIES: CategoryItem[] = [
   {
     id: 'clothing',
-    name: 'Clothing & Apparel',
-    shortName: 'Clothing',
-    description: 'Hoodies, t-shirts, jackets & socks crafted with certified organic materials.',
+    name: 'APPAREL',
+    label: 'Apparel',
+    dotColor: '#1a73e8', // Google Blue
+    dotBgClass: 'bg-blue-600',
+    description: 'Certified organic tees, hoodies, softshell jackets & socks.',
     count: 4,
-    image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    id: 'accessories',
-    name: 'Bags & Accessories',
-    shortName: 'Accessories',
-    description: 'Weatherproof commuter backpacks, caps, tech organizers, and everyday essentials.',
-    count: 3,
-    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80'
+    image: '/categories/apparel.jpg'
   },
   {
     id: 'drinkware',
-    name: 'Drinkware & Bottles',
-    shortName: 'Drinkware',
-    description: 'Pixel-inspired vacuum tumblers, campfire mugs, and pure glass bottles.',
+    name: 'DRINKWARE',
+    label: 'Drinkware',
+    dotColor: '#ea4335', // Google Red
+    dotBgClass: 'bg-red-500',
+    description: 'Double-wall vacuum tumblers, pure glass bottles, and enamel mugs.',
     count: 3,
-    image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80'
+    image: '/categories/drinkware.jpg'
   },
   {
-    id: 'tech-stationery',
-    name: 'Stationery & Collectibles',
-    shortName: 'Collectibles',
-    description: 'Hardcover rainbow notebooks, Android Bot figurines, and office desk flair.',
-    count: 2,
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'
+    id: 'bags',
+    name: 'BAGS',
+    label: 'Bags',
+    dotColor: '#f9ab00', // Google Yellow
+    dotBgClass: 'bg-amber-400',
+    description: 'Weatherproof commuter backpacks, canvas totes, and tech organizers.',
+    count: 3,
+    image: '/categories/bags.jpg'
+  },
+  {
+    id: 'accessories',
+    name: 'ACCESSORIES',
+    label: 'Accessories',
+    dotColor: '#34a853', // Google Green
+    dotBgClass: 'bg-emerald-600',
+    description: 'Structured performance caps, collectible enamel pins, and lanyards.',
+    count: 4,
+    image: '/categories/accessories.jpg'
   }
 ];
