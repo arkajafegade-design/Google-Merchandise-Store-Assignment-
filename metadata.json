@@ -1,0 +1,7 @@
+{
+  "name": "Google Merchandise Store",
+  "description": "Official Google Merchandise Store redesign with mobile-first discovery, streamlined checkout, and GA4 ecommerce analytics tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
