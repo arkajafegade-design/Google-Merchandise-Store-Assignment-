@@ -654,6 +654,148 @@ export const PRODUCTS: Product[] = [
         verified: true
       }
     ]
+  },
+  {
+    id: 'g-crewneck-04',
+    slug: 'google-crewneck-sweatshirt',
+    name: 'Google Crewneck Sweatshirt',
+    tagline: 'Heavyweight fleece crewneck with vibrant official Google rainbow logo',
+    price: 65.00,
+    category: 'clothing',
+    categoryLabel: 'Apparel',
+    subcategory: 'Hoodies & Sweatshirts',
+    badge: 'Bestseller',
+    isBestseller: true,
+    isNew: false,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 42,
+    rating: 4.7,
+    reviewCount: 96,
+    images: [
+      '/products/crewneck-sweatshirt.jpg'
+    ],
+    colors: [
+      { name: 'Charcoal Black', hex: '#111827' },
+      { name: 'Heather Grey', hex: '#9ca3af' },
+      { name: 'Google Blue', hex: '#2563eb' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'The timeless campus pullover. Built with ultra-plush 360 GSM combed cotton fleece, featuring ribbed cuffs, hem, and the iconic Google multi-color logo proudly across the chest.',
+    features: [
+      '360 GSM premium organic cotton fleece',
+      'Ribbed collar, cuffs, and hem with spandex shape memory',
+      'Color-matched interior neck taping for itch-free comfort',
+      'Vibrant screen-printed Google rainbow lettering'
+    ],
+    materials: '85% Organic Cotton, 15% Recycled Polyester',
+    care: 'Machine wash cold with like colors. Tumble dry low.',
+    reviews: [
+      {
+        id: 'rev-crew-01',
+        author: 'Marcus B.',
+        date: '3 days ago',
+        rating: 5,
+        title: 'Perfect weight and fit',
+        comment: 'Extremely well-made sweatshirt. The fleece lining is super soft and the colors are vibrant.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-longsleeve-05',
+    slug: 'google-long-sleeve-tee',
+    name: 'Google Long Sleeve Tee',
+    tagline: 'Crisp organic cotton long sleeve tee with sleeve graphic and chest emblem',
+    price: 32.00,
+    category: 'clothing',
+    categoryLabel: 'Apparel',
+    subcategory: 'T-Shirts',
+    badge: 'New Arrival',
+    isBestseller: false,
+    isNew: true,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 35,
+    rating: 4.6,
+    reviewCount: 73,
+    images: [
+      '/products/longsleeve-tee.jpg'
+    ],
+    colors: [
+      { name: 'Crisp White', hex: '#ffffff' },
+      { name: 'Charcoal Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'A modern layering staple featuring the clean Google chest emblem and colorful Google lettering along the sleeve. Pre-shrunk 100% organic combed ring-spun cotton for an effortlessly soft feel.',
+    features: [
+      '100% GOTS-certified ring-spun organic cotton',
+      'Screen-printed typographic sleeve detail',
+      'Ribbed cuffs for a secure tailored fit',
+      'Side-seamed athletic silhouette'
+    ],
+    materials: '100% Organic Cotton',
+    care: 'Machine wash cold inside out, hang dry recommended.',
+    reviews: [
+      {
+        id: 'rev-ls-01',
+        author: 'Claire D.',
+        date: '5 days ago',
+        rating: 5,
+        title: 'Love the sleeve detail',
+        comment: 'The sleeve graphic is such a nice subtle touch. Great breathable cotton for everyday wear.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-ziphoodie-06',
+    slug: 'google-zip-hoodie',
+    name: 'Google Zip Hoodie',
+    tagline: 'Premium full-zip fleece hoodie with metal zipper and embroidered chest logo',
+    price: 95.00,
+    originalPrice: 120.00,
+    category: 'clothing',
+    categoryLabel: 'Apparel',
+    subcategory: 'Hoodies & Sweatshirts',
+    badge: 'Sale',
+    isBestseller: true,
+    isNew: false,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 22,
+    rating: 4.5,
+    reviewCount: 62,
+    images: [
+      '/products/zip-hoodie.jpg'
+    ],
+    colors: [
+      { name: 'Onyx Black', hex: '#111827' },
+      { name: 'Heather Grey', hex: '#9ca3af' },
+      { name: 'Google Blue', hex: '#2563eb' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    description: 'Versatile, warm, and built to last. Premium full-zip fleece hoodie engineered with heavy-duty YKK zipper, double-layered drawstring hood, and dual front split pouch pockets.',
+    features: [
+      'Heavyweight 400 GSM brushed interior fleece',
+      'Antique nickel YKK full-length zipper',
+      'Embroidered multicolor Google logo on left chest',
+      'Reinforced dual front pouch pockets'
+    ],
+    materials: '80% Organic Cotton, 20% Recycled Polyester Fleece',
+    care: 'Machine wash cold with like colors, gentle cycle.',
+    reviews: [
+      {
+        id: 'rev-zip-01',
+        author: 'Jonathan K.',
+        date: '1 week ago',
+        rating: 5,
+        title: 'Top notch quality hoodie',
+        comment: 'Worth every penny! Heavyweight fabric and the zipper is very smooth.',
+        verified: true
+      }
+    ]
   }
 ];
 
