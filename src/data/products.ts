@@ -35,10 +35,10 @@ export const PRODUCTS: Product[] = [
     slug: 'google-heritage-tricolor-hoodie',
     name: 'Google Heritage Tricolor Zip Hoodie',
     tagline: 'Ultra-soft organic cotton fleece with embroidered Google crest',
-    price: 64.00,
-    originalPrice: 75.00,
+    price: 54.00,
+    originalPrice: 65.00,
     category: 'clothing',
-    categoryLabel: 'Clothing',
+    categoryLabel: 'Apparel',
     subcategory: 'Hoodies & Sweatshirts',
     badge: 'Bestseller',
     isBestseller: true,
@@ -46,19 +46,19 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockCount: 18,
     rating: 4.9,
-    reviewCount: 142,
+    reviewCount: 2400,
     images: [
+      '/products/white-hoodie.jpg',
       '/hero-banner.jpg',
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
-      { name: 'Navy Blue', hex: '#1a365d' },
-      { name: 'Heather Grey', hex: '#718096' },
-      { name: 'Forest Green', hex: '#276749' }
+      { name: 'White', hex: '#ffffff' },
+      { name: 'Heather Grey', hex: '#94a3b8' },
+      { name: 'Black', hex: '#0f172a' },
+      { name: 'Royal Blue', hex: '#2563eb' }
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    sizes: ['S', 'M', 'L', 'XL'],
     description: 'A Google campus classic refreshed for all-day comfort. Crafted with 100% GOTS-certified heavyweight organic cotton fleece, featuring a double-lined hood, durable YKK metal zipper, and subtle tonal embroidery of the iconic Google Super G logo on the chest.',
     features: [
       '100% certified organic ring-spun combed cotton (380 GSM)',
@@ -92,12 +92,12 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'g-tee-02',
-    slug: 'google-minimalist-super-g-tee',
-    name: 'Google Minimalist "Super G" Organic Tee',
+    slug: 'google-classic-super-g-t-shirt',
+    name: 'Google Classic Super G T-Shirt',
     tagline: 'Tailored everyday crewneck in premium combed cotton',
     price: 28.00,
     category: 'clothing',
-    categoryLabel: 'Clothing',
+    categoryLabel: 'Apparel',
     subcategory: 'T-Shirts',
     badge: 'Popular',
     isBestseller: true,
@@ -105,18 +105,18 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockCount: 45,
     rating: 4.8,
-    reviewCount: 96,
+    reviewCount: 1800,
     images: [
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1000&q=80'
+      '/products/superg-tee.jpg',
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
-      { name: 'Crisp White', hex: '#f7fafc' },
-      { name: 'Charcoal Black', hex: '#1a202c' },
-      { name: 'Mountain View Sage', hex: '#4a7c59' }
+      { name: 'Crisp White', hex: '#ffffff' },
+      { name: 'Heather Grey', hex: '#94a3b8' },
+      { name: 'Dark Blue', hex: '#1e3a8a' },
+      { name: 'Royal Blue', hex: '#2563eb' }
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    sizes: ['S', 'M', 'L', 'XL'],
     description: 'The foundation of the Google Merch wardrobe. Lightweight, breathable, and pre-shrunk for a consistent tailored fit wash after wash. Screen-printed with solvent-free water-based inks featuring the clean Google G monogram.',
     features: [
       '100% combed ring-spun organic cotton (180 GSM)',
@@ -140,37 +140,37 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'g-cap-03',
-    slug: 'gemini-ai-quantum-performance-cap',
-    name: 'Gemini AI Quantum Performance Cap',
+    slug: 'google-classic-cap',
+    name: 'Google Classic Cap',
     tagline: 'Water-repellent structured 6-panel cap with magnetic buckle',
-    price: 26.00,
+    price: 22.00,
     category: 'accessories',
     categoryLabel: 'Accessories',
     subcategory: 'Hats & Caps',
-    badge: 'New Arrival',
+    badge: 'Popular',
     isBestseller: false,
     isNew: true,
     inStock: true,
     stockCount: 30,
     rating: 4.7,
-    reviewCount: 38,
+    reviewCount: 840,
     images: [
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=80'
+      '/products/white-cap.jpg',
+      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
-      { name: 'Stealth Black', hex: '#171923' },
-      { name: 'Dune Sand', hex: '#d69e2e' }
+      { name: 'Crisp White', hex: '#ffffff' },
+      { name: 'Stealth Black', hex: '#171923' }
     ],
     sizes: ['One Size Fits All'],
-    description: 'Engineered for coders and creators on the move. Features a sweat-wicking internal headband, laser-perforated side ventilation panels, and the iridescent reflective Gemini sparkle icon on the crown.',
+    description: 'Engineered for coders and creators on the move. Features a sweat-wicking internal headband, laser-perforated side ventilation panels, and the colorful embroidered Google G emblem.',
     features: [
       'Laser-cut breathable eyelets for airflow',
       'UPF 50+ sun protection fabric with DWR finish',
-      'Quick-release magnetic FIDLOCK clasp closure',
-      'Reflective Gemini emblem visible in low light'
+      'Embroidered heritage Google G icon',
+      'Adjustable back clasp closure'
     ],
-    materials: '100% Recycled Ripstop Nylon',
+    materials: '100% Recycled Cotton Twill',
     care: 'Spot clean with damp cloth and mild detergent.',
     reviews: [
       {
@@ -178,17 +178,17 @@ export const PRODUCTS: Product[] = [
         author: 'Samira T.',
         date: '2 weeks ago',
         rating: 5,
-        title: 'The magnetic strap is a game changer',
-        comment: 'Super lightweight and keeps its shape. Love the understated Gemini branding.',
+        title: 'The fit is super clean and comfortable',
+        comment: 'Super lightweight and keeps its shape. Love the understated Google branding.',
         verified: true
       }
     ]
   },
   {
     id: 'g-tumbler-04',
-    slug: 'google-pixel-insulated-matte-tumbler',
-    name: 'Google Pixel Insulated Matte Tumbler 20oz',
-    tagline: 'Double-wall stainless steel with leakproof splash lid',
+    slug: 'google-pixel-insulated-bottle',
+    name: 'Google Pixel Insulated Bottle',
+    tagline: 'Double-wall stainless steel with leakproof insulated cap',
     price: 32.00,
     category: 'drinkware',
     categoryLabel: 'Drinkware',
@@ -199,28 +199,27 @@ export const PRODUCTS: Product[] = [
     inStock: true,
     stockCount: 52,
     rating: 4.9,
-    reviewCount: 215,
+    reviewCount: 3200,
     images: [
-      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1570824104453-508955ab713e?auto=format&fit=crop&w=1000&q=80'
+      '/products/pixel-bottle.jpg',
+      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
-      { name: 'Obsidian Black', hex: '#212121' },
-      { name: 'Porcelain White', hex: '#f5f5f5' },
-      { name: 'Hazel Grey', hex: '#8d99ae' },
-      { name: 'Mint Green', hex: '#a8dadc' }
+      { name: 'Porcelain White', hex: '#ffffff' },
+      { name: 'Obsidian Black', hex: '#0f172a' },
+      { name: 'Tech Navy', hex: '#1e3a8a' },
+      { name: 'Google Green', hex: '#16a34a' }
     ],
-    sizes: ['20 oz (590 ml)'],
-    description: 'Designed to mirror the soft-touch tactile finish of Google Pixel devices. Keeps drinks cold for 24 hours or piping hot for up to 12 hours. Ergonomically shaped to fit standard vehicle cup holders and bike cages.',
+    sizes: ['24 oz (710 ml)'],
+    description: 'Designed to mirror the soft-touch tactile finish of Google Pixel devices. Keeps drinks ice cold for 24 hours or piping hot for up to 12 hours. Ergonomically shaped to fit standard vehicle cup holders and backpack bottle pockets.',
     features: [
       'Pro-grade 18/8 kitchen stainless steel',
       'Copper-core vacuum insulation eliminates condensation',
-      'Tritan shatterproof slider lid compatible with reusable straws',
-      'BPA-free, lead-free and non-toxic ceramic inner lining'
+      'Leakproof stainless steel screw-top cap',
+      'BPA-free, lead-free and non-toxic inner lining'
     ],
     materials: '18/8 Stainless Steel, Food-grade Silicone',
-    care: 'Top-rack dishwasher safe. Do not microwave.',
+    care: 'Hand wash recommended with bottle brush.',
     reviews: [
       {
         id: 'rev-401',
@@ -228,80 +227,82 @@ export const PRODUCTS: Product[] = [
         date: '4 days ago',
         rating: 5,
         title: 'Keeps ice frozen for over a full day',
-        comment: 'Matches my Pixel 9 Pro Obsidian perfectly. The ceramic coating means coffee never tastes metallic!',
+        comment: 'Matches my Pixel phone perfectly. The finish feels incredible in the hand!',
         verified: true
       }
     ]
   },
   {
     id: 'g-socks-05',
-    slug: 'chrome-dinosaur-no-internet-socks',
-    name: 'Chrome Dinosaur "No Internet" Crew Socks',
-    tagline: 'Cushioned combed cotton crew socks featuring the offline Dino',
-    price: 16.00,
-    category: 'clothing',
-    categoryLabel: 'Clothing',
+    slug: 'google-chrome-dino-socks',
+    name: 'Google Chrome Dino Socks',
+    tagline: 'Cushioned combed cotton crew socks featuring the offline Dino and tricolor stripe',
+    price: 14.00,
+    category: 'accessories',
+    categoryLabel: 'Accessories',
     subcategory: 'Socks',
-    badge: 'Fan Favorite',
+    badge: 'Limited Stock',
     isBestseller: true,
     isNew: false,
     inStock: true,
-    stockCount: 65,
-    rating: 4.9,
-    reviewCount: 180,
+    stockCount: 14,
+    rating: 4.7,
+    reviewCount: 1200,
     images: [
-      'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=1000&q=80'
+      '/products/dino-socks.jpg',
+      'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
-      { name: 'Heather Grey / Teal', hex: '#4a5568' },
-      { name: 'Pixel Charcoal', hex: '#2d3748' }
+      { name: 'Crisp White', hex: '#ffffff' },
+      { name: 'Heather Grey', hex: '#94a3b8' },
+      { name: 'Obsidian Black', hex: '#0f172a' }
     ],
     sizes: ['S/M (US 6-9)', 'L/XL (US 9-13)'],
-    description: 'Celebrate the world’s most played offline arcade game. Woven with reinforced heel and toe arches, ribbed athletic cuff, and pixelated 8-bit T-Rex and cactus graphics that make every software bug a little more fun.',
+    description: 'Celebrate Google heritage and the world’s most played offline arcade game. Woven with reinforced heel and toe arches, ribbed athletic cuff with vibrant rainbow stripes, and official Google G emblem.',
     features: [
       'Reinforced cushioned footbed for all-day campus walking',
       'Dynamic arch compression band prevents slipping',
       'Seamless toe closure prevents chafing',
-      'Jacquard knit pattern will not crack or peel'
+      'Retro athletic ribbed cuff with Google tricolor stripes'
     ],
-    materials: '75% Combed Cotton, 22% Polyester, 3% Elastane',
-    care: 'Machine wash warm, tumble dry low.',
+    materials: '80% Combed Cotton, 17% Polyester, 3% Spandex',
+    care: 'Machine wash warm, tumble dry medium.',
     reviews: [
       {
         id: 'rev-501',
-        author: 'Josh B.',
+        author: 'Alex W.',
         date: '1 week ago',
         rating: 5,
-        title: 'Instant conversation starter at standup',
-        comment: 'Super soft and the cactus & dino design is crisp. Bought three pairs as gifts for my team.',
+        title: 'Super comfy and fun',
+        comment: 'Everyone at the office asks where I got these! The rainbow stripes are super crisp.',
         verified: true
       }
     ]
   },
   {
     id: 'g-backpack-06',
-    slug: 'google-campus-commuter-backpack-24l',
-    name: 'Google Campus Commuter Laptop Backpack 24L',
+    slug: 'google-everyday-backpack',
+    name: 'Google Everyday Backpack',
     tagline: 'Weatherproof recycled tech pack with dedicated 16" laptop sleeve',
-    price: 78.00,
-    originalPrice: 89.00,
+    price: 48.00,
+    originalPrice: 58.00,
     category: 'bags',
     categoryLabel: 'Bags',
     subcategory: 'Bags & Backpacks',
-    badge: 'Staff Pick',
+    badge: 'Bestseller',
     isBestseller: true,
     isNew: false,
     inStock: true,
-    stockCount: 12,
+    stockCount: 24,
     rating: 4.8,
-    reviewCount: 74,
+    reviewCount: 950,
     images: [
+      '/products/everyday-backpack.jpg',
       'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=80'
     ],
     colors: [
+      { name: 'Canvas Cream', hex: '#fdfbf7' },
       { name: 'Space Grey', hex: '#4a5568' },
       { name: 'Deep Tech Navy', hex: '#2c3e50' }
     ],
