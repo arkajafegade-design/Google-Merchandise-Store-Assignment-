@@ -70,6 +70,7 @@ export interface Promotion {
   discountCode: string;
   discountRate: number; // e.g. 0.20 for 20%
   bannerImage: string;
+  productImage?: string;
   categoryTarget?: ProductCategory;
   tagline: string;
 }

@@ -59,19 +59,20 @@ export const PromotionBanner: React.FC<PromotionBannerProps> = ({
               src={promotion.bannerImage}
               alt={promotion.title}
               className="w-full h-full object-cover object-center opacity-40 group-hover:scale-103 transition duration-700"
+              referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-900/80 to-neutral-900/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-900/85 to-neutral-900/50"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 p-6 sm:p-10 lg:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="max-w-xl space-y-3">
+          <div className="relative z-10 p-6 sm:p-10 lg:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6 lg:gap-8">
+            <div className="max-w-xl space-y-3.5">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-yellow-400 text-neutral-950 text-xs font-extrabold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{promotion.tagline}</span>
               </div>
 
-              <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 {promotion.title}
               </h3>
 
@@ -100,6 +101,21 @@ export const PromotionBanner: React.FC<PromotionBannerProps> = ({
                 </button>
               </div>
             </div>
+
+            {/* Optional Showcase Product Image */}
+            {promotion.productImage && (
+              <div className="shrink-0 flex items-center justify-center my-2 md:my-0">
+                <div className="relative w-36 h-48 sm:w-44 sm:h-52 lg:w-48 lg:h-60 flex items-center justify-center p-2 rounded-2xl bg-white/5 backdrop-blur-xs border border-white/10">
+                  <div className="absolute inset-0 bg-radial from-blue-500/10 to-transparent rounded-2xl"></div>
+                  <img
+                    src={promotion.productImage}
+                    alt={promotion.title}
+                    className="relative z-10 max-h-full max-w-full object-contain drop-shadow-2xl group-hover:scale-105 group-hover:-translate-y-1 transition duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* CTA Button */}
             <div className="shrink-0">

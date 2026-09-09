@@ -23,7 +23,8 @@ export const PROMOTIONS: Promotion[] = [
     subtitle: 'Double-walled vacuum insulation keeping drinks icy for 24h. Free shipping on all drinkware orders.',
     discountCode: 'FREESHIP',
     discountRate: 0,
-    bannerImage: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1600&q=80',
+    bannerImage: '/hydrate-smarter-banner.jpg',
+    productImage: '/products/pixel-bottle.jpg',
     categoryTarget: 'drinkware',
     tagline: 'Eco-certified stainless steel'
   }
