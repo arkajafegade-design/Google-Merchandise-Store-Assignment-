@@ -14,6 +14,7 @@ import { CATEGORIES } from '../data/products';
 import { NewArrivalsExperience } from './NewArrivalsExperience';
 import { AllProductsExperience } from './AllProductsExperience';
 import { ApparelExperience } from './ApparelExperience';
+import { DrinkwareExperience } from './DrinkwareExperience';
 
 interface ProductListingPageProps {
   products: Product[];
@@ -43,6 +44,7 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
   const [newArrivalsViewMode, setNewArrivalsViewMode] = useState<'showcase' | 'grid'>('showcase');
   const [allProductsViewMode, setAllProductsViewMode] = useState<'showcase' | 'grid'>('showcase');
   const [apparelViewMode, setApparelViewMode] = useState<'showcase' | 'grid'>('showcase');
+  const [drinkwareViewMode, setDrinkwareViewMode] = useState<'showcase' | 'grid'>('showcase');
 
   // Filter & Sort Logic
   const filteredProducts = useMemo(() => {
@@ -113,6 +115,7 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
   const isAllProductsShowcase = selectedCategory === 'all' && allProductsViewMode === 'showcase' && !searchQuery;
   const isNewArrivalsShowcase = selectedCategory === 'new-arrivals' && newArrivalsViewMode === 'showcase' && !searchQuery;
   const isApparelShowcase = selectedCategory === 'clothing' && apparelViewMode === 'showcase' && !searchQuery;
+  const isDrinkwareShowcase = selectedCategory === 'drinkware' && drinkwareViewMode === 'showcase' && !searchQuery;
 
   return (
     <div className="bg-neutral-50/50 min-h-screen py-6 sm:py-8">
@@ -190,6 +193,42 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
           </div>
         )}
 
+        {/* Drinkware View Switcher Bar */}
+        {selectedCategory === 'drinkware' && !searchQuery && (
+          <div className="mb-6 flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-neutral-200">
+            <div className="inline-flex p-1 rounded-xl bg-neutral-200/80 border border-neutral-300/60">
+              <button
+                id="btn-drinkware-mode-showcase"
+                type="button"
+                onClick={() => setDrinkwareViewMode('showcase')}
+                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  drinkwareViewMode === 'showcase'
+                    ? 'bg-white text-neutral-900 shadow-xs'
+                    : 'text-neutral-600 hover:text-neutral-900'
+                }`}
+              >
+                Featured Drinkware Experience
+              </button>
+              <button
+                id="btn-drinkware-mode-grid"
+                type="button"
+                onClick={() => setDrinkwareViewMode('grid')}
+                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  drinkwareViewMode === 'grid'
+                    ? 'bg-white text-neutral-900 shadow-xs'
+                    : 'text-neutral-600 hover:text-neutral-900'
+                }`}
+              >
+                Browse Drinkware Grid ({filteredProducts.length})
+              </button>
+            </div>
+            
+            <div className="text-xs text-neutral-500 font-medium hidden sm:block">
+              Hydrate. Stay inspired. • Official Google Campus Drinkware
+            </div>
+          </div>
+        )}
+
         {/* If in All Products Showcase Mode, display the complete experience */}
         {isAllProductsShowcase ? (
           <AllProductsExperience
@@ -215,6 +254,13 @@ export const ProductListingPage: React.FC<ProductListingPageProps> = ({
           />
         ) : isApparelShowcase ? (
           <ApparelExperience
+            products={products}
+            onSelectProduct={onSelectProduct}
+            onSelectCategory={onSelectCategory}
+            onNavigateHome={onNavigateHome}
+          />
+        ) : isDrinkwareShowcase ? (
+          <DrinkwareExperience
             products={products}
             onSelectProduct={onSelectProduct}
             onSelectCategory={onSelectCategory}

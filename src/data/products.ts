@@ -796,6 +796,247 @@ export const PRODUCTS: Product[] = [
         verified: true
       }
     ]
+  },
+  {
+    id: 'g-drinkware-tumbler-02',
+    slug: 'google-tumbler',
+    name: 'Google Tumbler',
+    tagline: 'Keep drinks hot or cold with a sleek design.',
+    price: 28.00,
+    category: 'drinkware',
+    categoryLabel: 'Drinkware',
+    subcategory: 'Bottles & Tumblers',
+    badge: 'Eco Friendly',
+    isBestseller: false,
+    isNew: false,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 45,
+    rating: 4.8,
+    reviewCount: 102,
+    images: [
+      '/products/google-tumbler.jpg'
+    ],
+    colors: [
+      { name: 'Forest Green', hex: '#15803d' },
+      { name: 'Onyx Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Steel Grey', hex: '#64748b' }
+    ],
+    sizes: ['20 oz (590 ml)'],
+    description: 'Keep drinks hot or cold with a sleek, minimalist design. Vacuum-insulated stainless steel tumbler with spill-resistant slide lid and signature Google rainbow wordmark.',
+    features: [
+      'Double-wall vacuum insulation keeps drinks cold 18 hrs, hot 6 hrs',
+      'Splash-resistant slide closure lid with silicone gasket',
+      'Food-grade 18/8 stainless steel construction',
+      'Cup holder friendly tapered base'
+    ],
+    materials: '18/8 Stainless Steel, BPA-Free Eastman Tritan Lid',
+    care: 'Top rack dishwasher safe. Hand wash lid recommended.',
+    reviews: [
+      {
+        id: 'rev-dt-01',
+        author: 'David L.',
+        date: '2 days ago',
+        rating: 5,
+        title: 'Sleek and keeps coffee hot all morning',
+        comment: 'Love the forest green finish. Doesn’t sweat and fits perfectly in my car cup holder.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-drinkware-mug-03',
+    slug: 'google-mug',
+    name: 'Google Mug',
+    tagline: 'Classic ceramic mug with a clean design.',
+    price: 18.00,
+    originalPrice: 24.00,
+    category: 'drinkware',
+    categoryLabel: 'Drinkware',
+    subcategory: 'Mugs',
+    badge: 'Sale',
+    isBestseller: true,
+    isNew: false,
+    ecoFriendly: false,
+    inStock: true,
+    stockCount: 60,
+    rating: 4.6,
+    reviewCount: 87,
+    images: [
+      '/products/google-ceramic-mug.jpg'
+    ],
+    colors: [
+      { name: 'Porcelain White', hex: '#ffffff' },
+      { name: 'Matte Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Slate Grey', hex: '#64748b' }
+    ],
+    sizes: ['15 oz (440 ml)'],
+    description: 'Classic ceramic mug with a clean design and generous comfortable handle. Emblazoned with the iconic Google rainbow G logo for a vibrant morning coffee or tea.',
+    features: [
+      'High-fired durable ceramic stoneware',
+      'Microwave and dishwasher safe',
+      'Generous 15 oz capacity with ergonomic C-handle',
+      'Glossy glazed finish with fade-resistant emblem'
+    ],
+    materials: '100% High-fire Ceramic',
+    care: 'Dishwasher safe and microwave safe.',
+    reviews: [
+      {
+        id: 'rev-dm-01',
+        author: 'Rachel P.',
+        date: '4 days ago',
+        rating: 5,
+        title: 'Everyday go-to mug',
+        comment: 'Great weight and feel. The G logo is clean and bright.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-drinkware-glass-04',
+    slug: 'google-glass-water-bottle',
+    name: 'Google Glass Water Bottle',
+    tagline: 'Borosilicate glass with bamboo lid.',
+    price: 28.00,
+    category: 'drinkware',
+    categoryLabel: 'Drinkware',
+    subcategory: 'Bottles & Tumblers',
+    badge: 'Eco Friendly',
+    isBestseller: false,
+    isNew: false,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 30,
+    rating: 4.7,
+    reviewCount: 73,
+    images: [
+      '/products/google-glass-bottle.jpg'
+    ],
+    colors: [
+      { name: 'Clear Glass', hex: '#ffffff' },
+      { name: 'Matte Black', hex: '#111827' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Slate Grey', hex: '#9ca3af' }
+    ],
+    sizes: ['20 oz (590 ml)'],
+    description: 'Borosilicate glass with natural bamboo lid. Pure, unadulterated hydration with zero plastic taste. Includes an airtight leakproof bamboo screw cap with steel insert.',
+    features: [
+      'Thermal shock resistant borosilicate glass',
+      'Natural organic bamboo screw-top lid',
+      'Wide-mouth opening for easy ice filling and cleaning',
+      '100% BPA, phthalate, and toxin free'
+    ],
+    materials: 'Borosilicate Glass, Bamboo, Food-Grade Silicone',
+    care: 'Glass is dishwasher safe. Hand wash bamboo cap.',
+    reviews: [
+      {
+        id: 'rev-dg-01',
+        author: 'Taylor S.',
+        date: '1 week ago',
+        rating: 5,
+        title: 'So clean and minimal',
+        comment: 'The bamboo lid looks very high-end and pure water tastes crisp without any metal or plastic notes.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-drinkware-travel-05',
+    slug: 'google-travel-tumbler',
+    name: 'Google Travel Tumbler',
+    tagline: 'Perfect for work, travel and on the go.',
+    price: 36.00,
+    category: 'drinkware',
+    categoryLabel: 'Drinkware',
+    subcategory: 'Bottles & Tumblers',
+    badge: 'Fan Favorite',
+    isBestseller: true,
+    isNew: false,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 38,
+    rating: 4.8,
+    reviewCount: 66,
+    images: [
+      '/products/google-travel-tumbler.jpg'
+    ],
+    colors: [
+      { name: 'Stealth Black', hex: '#111827' },
+      { name: 'Charcoal Grey', hex: '#4b5563' },
+      { name: 'Google Blue', hex: '#2563eb' },
+      { name: 'Google Green', hex: '#16a34a' }
+    ],
+    sizes: ['20 oz (590 ml)'],
+    description: 'Perfect for work, travel and on the go. Matte stealth black insulated travel tumbler engineered with double-wall vacuum protection and a smooth leak-resistant flip sip lid.',
+    features: [
+      'Matte powder-coated durable outer finish',
+      'Copper-lined vacuum insulation maintains temperatures for hours',
+      'Leakproof flip-top commuter lid',
+      'Vibrant centered Google rainbow G logo'
+    ],
+    materials: '18/8 Kitchen-Grade Stainless Steel',
+    care: 'Hand wash recommended.',
+    reviews: [
+      {
+        id: 'rev-dtt-01',
+        author: 'Alex M.',
+        date: '3 days ago',
+        rating: 5,
+        title: 'Best travel tumbler I have owned',
+        comment: 'Never spills in my bag and keeps my tea hot during my entire commute and workday.',
+        verified: true
+      }
+    ]
+  },
+  {
+    id: 'g-drinkware-kids-06',
+    slug: 'google-kids-bottle',
+    name: 'Google Kids Bottle',
+    tagline: 'Durable, lightweight and easy to carry.',
+    price: 22.00,
+    category: 'drinkware',
+    categoryLabel: 'Drinkware',
+    subcategory: 'Bottles & Tumblers',
+    badge: 'New Arrival',
+    isBestseller: false,
+    isNew: true,
+    ecoFriendly: true,
+    inStock: true,
+    stockCount: 50,
+    rating: 4.5,
+    reviewCount: 48,
+    images: [
+      '/products/google-kids-bottle.jpg'
+    ],
+    colors: [
+      { name: 'Electric Blue', hex: '#2563eb' },
+      { name: 'Bubblegum Pink', hex: '#ec4899' },
+      { name: 'Grass Green', hex: '#16a34a' },
+      { name: 'Sunny Yellow', hex: '#eab308' }
+    ],
+    sizes: ['14 oz (410 ml)'],
+    description: 'Durable, lightweight and easy to carry. Designed specifically for smaller hands with an integrated carry loop lid, leakproof flip straw, and drop-resistant powder coat finish.',
+    features: [
+      'Integrated soft-touch carry loop on lid',
+      'Spill-proof flip straw spout with bite valve',
+      'Food-grade lightweight stainless steel construction',
+      'Sized to fit standard school backpacks and lunch bags'
+    ],
+    materials: '18/8 Stainless Steel, BPA-free Polypropylene',
+    care: 'Top-rack dishwasher safe.',
+    reviews: [
+      {
+        id: 'rev-dk-01',
+        author: 'Sarah K.',
+        date: '5 days ago',
+        rating: 5,
+        title: 'My son loves this bottle',
+        comment: 'Easy to drink from, never leaks in his school backpack, and the colors are super cheerful!',
+        verified: true
+      }
+    ]
   }
 ];
 
